@@ -1,0 +1,47 @@
+# Include partial for lazyimages (taken from fluid_styled_content)
+lib.fluidContent {
+	partialRootPaths {
+		1 = EXT:lib_js_lazysizes/Resources/Private/Partials/
+	}
+}
+# Set values for responsive lazyload-images
+tt_content.textmedia.settings.responsive_image_rendering {
+	layoutKey = srcset
+	attributePrefix = data-
+	sourceCollection {
+		smallest {
+			width = 264
+			srcset = 264w
+		}
+		medium {
+			width = 360
+			srcset = 360w
+		}
+		large {
+			width = 555
+			srcset = 555w
+		}
+		larger {
+			width = 737
+			srcset = 737w
+		}
+		largest {
+			width = 1140
+			srcset = 1140w
+			sizes = auto
+		}
+	}
+}
+
+# Include https://github.com/aFarkas/lazysizes for responsive-images and lazyloading
+page {
+	includeCSS {
+		# Add CSS for lazysizes
+		css_lazysizes = EXT:lib_js_lazysizes/Resources/Public/Css/lazysizes.css
+	}
+	includeJSFooterlibs {
+		js_lazysizes = EXT:lib_js_lazysizes/Resources/Public/JavaScript/lazysizes.min.js
+		js_lazysizes.disableCompression = 1
+	}
+}
+
