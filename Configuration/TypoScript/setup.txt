@@ -4,6 +4,7 @@ lib.fluidContent {
 		1 = EXT:lib_js_lazysizes/Resources/Private/Partials/
 	}
 }
+
 # Set values for responsive lazyload-images
 tt_content.textmedia.settings.responsive_image_rendering {
 	layoutKey = srcset
@@ -33,15 +34,17 @@ tt_content.textmedia.settings.responsive_image_rendering {
 	}
 }
 
-# Include https://github.com/aFarkas/lazysizes for responsive-images and lazyloading
 page {
 	includeCSS {
 		# Add CSS for lazysizes
 		css_lazysizes = EXT:lib_js_lazysizes/Resources/Public/Css/lazysizes.css
 	}
 	includeJSFooterlibs {
-		js_lazysizes = EXT:lib_js_lazysizes/Resources/Public/JavaScript/lazysizes.min.js
-		js_lazysizes.disableCompression = 1
+		# Include plugin "responsive images polyfill" for lazysizes
+		lib_js_lazysizes_plugin = EXT:lib_js_lazysizes/Resources/Public/JavaScript/ls.respimg.min.js
+		lib_js_lazysizes_plugin.disableCompression = 1
+		# Include lazysizes-library
+		lib_js_lazysizes = EXT:lib_js_lazysizes/Resources/Public/JavaScript/lazysizes.min.js
+		lib_js_lazysizes.disableCompression = 1
 	}
 }
-
